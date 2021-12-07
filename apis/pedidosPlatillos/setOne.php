@@ -6,7 +6,6 @@ header('Access-Control-Allow-Origin: *');
 require '../includes/conexion.php';
 
 //========================= Parametros que nos llegan por POST
-$nombre = utf8_decode($_POST['nombre']);
 $idPedidos = utf8_decode($_POST['idPedidos']);
 $idPlatillos = utf8_decode($_POST['idPlatillos']);
 $edit = utf8_decode($_POST['edit']);
@@ -15,7 +14,7 @@ try {
     if ($edit == '0') {
 
         //========================= Realizamos la consulta
-        $consultaPedidosPlatillos = "INSERT INTO pedidosPlatillos
+        $consultaPedidosPlatillos = "INSERT INTO pedidos_platillos
         (
         idPedidos,
         idPlatillos
@@ -30,7 +29,7 @@ try {
     } else {
 
         //========================= Realizamos la consulta
-        $consultaPedidosPlatillos = "UPDATE pedidosPlatillos SET 
+        $consultaPedidosPlatillos = "UPDATE pedidos_platillos SET 
         idPedidos = '$idPedidos',
         idPlatillos = '$idPlatillos'
 

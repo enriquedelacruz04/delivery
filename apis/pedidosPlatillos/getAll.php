@@ -8,7 +8,7 @@ require '../includes/conexion.php';
 try {
 
     //========================= Realizamos la consulta
-    $consultaPedidosPlatillos = "SELECT * FROM pedidosPlatillos";
+    $consultaPedidosPlatillos = "SELECT * FROM pedidos_platillos";
     $resultadoPedidosPlatillos = mysqli_query($db, $consultaPedidosPlatillos);
     $countPedidosPlatillos = mysqli_num_rows($resultadoPedidosPlatillos);
 

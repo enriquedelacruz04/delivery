@@ -11,7 +11,7 @@ $id = $_POST['id'];
 try {
 
     //========================= Realizamos la consulta
-    $consultaPedidosPlatillos = "SELECT * FROM pedidosPlatillos WHERE idPedidosPlatillos = '$id'";
+    $consultaPedidosPlatillos = "SELECT * FROM pedidos_platillos WHERE idPedidosPlatillos = '$id'";
     $resultadoPedidosPlatillos = mysqli_query($db, $consultaPedidosPlatillos);
     $countPedidosPlatillos = mysqli_num_rows($resultadoPedidosPlatillos);
 

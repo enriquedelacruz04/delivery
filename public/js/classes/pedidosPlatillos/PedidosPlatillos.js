@@ -19,7 +19,7 @@ class PedidosPlatillos extends TablesDB {
             let datos = new FormData();
             datos.append("id", id);
             datos.append("idTabla", "idPedidosPlatillos");
-            datos.append("tabla", "pedidosPlatillos");
+            datos.append("tabla", "pedidos_platillos");
 
             const dataUrl = urls.delete;
 

@@ -14,7 +14,7 @@ let pedidosPlatillos = new PedidosPlatillos(urlsPedidosPlatillos);
 let tableHTML = urls.pedidosPlatillos.table;
 let formHtml = urls.pedidosPlatillos.form;
 
-export function loadPedidosPlatillos(id) {
+export function loadPedidosPlatillos() {
     let html = "";
 
     //========================= Cargamos la tabla y los datos de la tabla
