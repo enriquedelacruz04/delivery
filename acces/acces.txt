@@ -1,0 +1,8 @@
+url:
+https://databases-auth.000webhost.com
+
+user:
+id18077359_root
+
+password:
+Sghi337mi...

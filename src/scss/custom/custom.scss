@@ -1,0 +1,48 @@
+$primary: #ff441f;
+
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+//===========================================================
+// Cards
+//===========================================================
+
+#custom-cards {
+    .card {
+        border-radius: 20px;
+        background-color: $primary;
+        cursor: pointer;
+        user-select: none;
+
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.08);
+        }
+    }
+
+    i {
+        font-size: 6rem;
+    }
+
+    .h-100 {
+        align-items: center;
+    }
+}
+
+//===========================================================
+// Tables
+//===========================================================
+
+table{
+    .fas{
+        font-size: 1.2rem !important; 
+    }
+}

@@ -1,0 +1,46 @@
+<div class='p-3 mb-4 bg-light rounded-3'>
+    <h1 class='display-5 fw-bold'>Platillos</h1>
+
+    <form class="row g-3" id="form-pedidos">
+
+        <div class="col-md-6">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha">
+        </div>
+
+        <div class="col-md-6">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="time" class="form-control" id="hora" name="hora">
+        </div>
+
+        <div class="col-md-6">
+            <label for="importe" class="form-label">Importe</label>
+            <input type="number" class="form-control" id="importe" name="importe">
+        </div>
+
+        <div class="col-md-6">
+            <label for="idClientes" class="form-label">Cliente</label>
+            <select class="form-select" id="idClientes" name="idClientes">
+                <option selected>Escoger...</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="idRepartidores" class="form-label">Repartidor</label>
+            <select class="form-select" id="idRepartidores" name="idRepartidores">
+                <option selected>Escoger...</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <input type="hidden" class="form-control" id="edit" name="edit">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+        </div>
+
+    </form>
+
+
+</div>

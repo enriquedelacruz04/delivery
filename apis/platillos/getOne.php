@@ -1,0 +1,56 @@
+<?php
+header("Content-Type: application/json");
+header('Access-Control-Allow-Origin: *');
+
+//========================= Importamos la conexion
+require '../includes/conexion.php';
+
+//========================= Parametros que nos llegan por POST
+$id = $_POST['id'];
+
+try {
+
+    //========================= Realizamos la consulta
+    $consultaPlatillos = "SELECT * FROM platillos WHERE idPlatillos = '$id'";
+    $resultadoPlatillos = mysqli_query($db, $consultaPlatillos);
+    $countPlatillos = mysqli_num_rows($resultadoPlatillos);
+
+    if ($countPlatillos > 0 && $resultadoPlatillos) {
+        $rowPlatillos = mysqli_fetch_assoc($resultadoPlatillos);
+
+        $id = $rowPlatillos['idPlatillos'];
+        $nombre = $rowPlatillos['nombre'];
+        $precio = $rowPlatillos['precio'];
+
+        $data = [
+            "id" => utf8_encode($id),
+            "nombre" => utf8_encode($nombre),
+            "precio" => utf8_encode($precio),
+        ];
+
+        //========================= Formamos el JSON
+        $platillos = [
+            "ok" => true,
+            "data" => $data,
+        ];
+    }
+
+    //========================= Si hubo errores en la DB
+    else {
+        $platillos = [
+            "ok" => false,
+            "msg" => "Error en la DB"
+        ];
+    }
+} catch (\Throwable $th) {
+    throw $th;
+    var_dump($th);
+
+    $platillos = [
+        "ok" => false,
+        "msg" => "Error en la DB"
+    ];
+}
+
+//========================= Imprimimos el JSON
+echo json_encode($platillos);
