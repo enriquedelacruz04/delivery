@@ -18,18 +18,38 @@ class App {
 export default App;
 
 function loadApp() {
+    loadMenu();
+    loadSidebarAnimate();
+
     let promise = loadHome();
     promise.then((data) => {
-        loadMenu();
-        loadSidebarAnimate();
+        loadMenuCards();
+
+        document.querySelector(".nav-pills .nav-item--home").addEventListener("click", function () {
+            let promise = loadHome();
+            promise.then((data) => {
+                loadMenuCards();
+            });
+        });
+    });
+}
+
+function loadMenuCards() {
+    //=========================
+    document.querySelector(".card--clientes").addEventListener("click", function () {
+        loadClientes();
+    });
+
+    document.querySelector(".card--repartidores").addEventListener("click", function () {
+        loadRepartidores();
+    });
+
+    document.querySelector(".card--pedidos").addEventListener("click", function () {
+        loadPedidos();
     });
 }
 
 function loadMenu() {
-    document.querySelector(".nav-pills .nav-item--home").addEventListener("click", function () {
-        loadApp();
-    });
-
     document.querySelector(".nav-pills .nav-item--clientes").addEventListener("click", function () {
         loadClientes();
     });
@@ -51,19 +71,6 @@ function loadMenu() {
     });
     document.querySelector(".nav-pills .nav-item--pedidos-platillos").addEventListener("click", function () {
         loadPedidosPlatillos();
-    });
-
-    //=========================
-    document.querySelector(".card--clientes").addEventListener("click", function () {
-        loadClientes();
-    });
-
-    document.querySelector(".card--repartidores").addEventListener("click", function () {
-        loadRepartidores();
-    });
-
-    document.querySelector(".card--pedidos").addEventListener("click", function () {
-        loadPedidos();
     });
 }
 
