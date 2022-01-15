@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 class Urls {
     // #server = "https://deliveryadminapp.000webhostapp.com/apis/";
     // #serverHtml = "https://deliveryadminapp.000webhostapp.com/pages/";

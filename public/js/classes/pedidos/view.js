@@ -3,6 +3,8 @@
 import Pedidos from "./Pedidos.js";
 import Urls from "../Urls.js";
 import UI from "../UI.js";
+import Routes from "../Routes.js";
+import { loadPedidosPlatillos } from "../pedidosPlatillos/view.js";
 
 //========================= Objetos de la clase
 let urls = new Urls();
@@ -101,11 +103,9 @@ function buttonEdit() {
 function buttonPlatillos() {
     document.querySelectorAll(".btn-platillos").forEach(function (item) {
         item.addEventListener("click", function () {
-            // let id = this.dataset.id;
-
+            let id = this.dataset.id;
             console.log("agregando platillos al pedido");
-            // loadEdit(id);
-            // loadPedidosPlatillos(id);
+            // Routes.router("pedidosPlatillos?id=" + id, loadPedidosPlatillos);
         });
     });
 }

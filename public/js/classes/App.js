@@ -1,75 +1,53 @@
 "use strict";
 
-import { loadClientes } from "./clientes/view.js";
-import { loadRutas } from "./rutas/view.js";
-import { loadColonias } from "./colonias/view.js";
-import { loadRepartidores } from "./repartidores/view.js";
-import { loadPlatillos } from "./platillos/view.js";
-import { loadPedidos } from "./pedidos/view.js";
-import { loadPedidosPlatillos } from "./pedidosPlatillos/view.js";
-import { loadHome } from "./home/view.js";
+import "./home/view.js";
+
+import Routes from "./Routes.js";
+
+let routes = new Routes();
 
 class App {
     constructor() {
         loadApp();
     }
 }
-
 export default App;
 
-function loadApp() {
+//============================================
+
+async function loadApp() {
     loadMenu();
     loadSidebarAnimate();
-
-    let promise = loadHome();
-    promise.then((data) => {
-        loadMenuCards();
-    });
-}
-
-function loadMenuCards() {
-    //=========================
-    document.querySelector(".card--clientes").addEventListener("click", function () {
-        loadClientes();
-    });
-
-    document.querySelector(".card--repartidores").addEventListener("click", function () {
-        loadRepartidores();
-    });
-
-    document.querySelector(".card--pedidos").addEventListener("click", function () {
-        loadPedidos();
-    });
+    routes.get(routes.paths.home.path);
 }
 
 function loadMenu() {
-    document.querySelector(".nav-pills .nav-item--home").addEventListener("click", function () {
-        loadHome().then((data) => {
-            loadMenuCards();
-        });
+    document.querySelector(".nav-pills .nav-item--home").addEventListener("click", async function () {
+        routes.get(routes.paths.home.path);
     });
 
     document.querySelector(".nav-pills .nav-item--clientes").addEventListener("click", function () {
-        loadClientes();
+        routes.get(routes.paths.clientes.path);
     });
 
     document.querySelector(".nav-pills .nav-item--rutas").addEventListener("click", function () {
-        loadRutas();
+        routes.get(routes.paths.rutas.path);
     });
 
     document.querySelector(".nav-pills .nav-item--repartidores").addEventListener("click", function () {
-        loadRepartidores();
+        routes.get(routes.paths.repartidores.path);
     });
 
     document.querySelector(".nav-pills .nav-item--colonias").addEventListener("click", function () {
-        loadColonias();
+        routes.get(routes.paths.colonias.path);
     });
 
     document.querySelector(".nav-pills .nav-item--platillos").addEventListener("click", function () {
-        loadPlatillos();
+        routes.get(routes.paths.platillos.path);
     });
+
     document.querySelector(".nav-pills .nav-item--pedidos-platillos").addEventListener("click", function () {
-        loadPedidosPlatillos();
+        routes.get(routes.paths.pedidosPlatillos.path);
     });
 }
 
