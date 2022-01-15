@@ -1,7 +1,6 @@
 "use strict";
 
 import Pedidos from "./Pedidos.js";
-import { loadPedidosPlatillos } from "../pedidosPlatillos/view.js";
 import Urls from "../Urls.js";
 import UI from "../UI.js";
 
@@ -52,7 +51,8 @@ function loadDataRows(data) {
         <td>${hora}</td>
         <td>${importe}</td>
         <td class="table-acciones" >
-            <button data-id="${id}" type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+            <button data-id="${id}" type="button" class="btn btn-primary btn-edit"><i class="fas fa-eye"></i></button>
+            <button data-id="${id}" type="button" class="btn btn-primary btn-platillos"><i class="fas fa-edit"></i></button>
             <button data-id="${id}"type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
         </td>
     </tr>
@@ -90,7 +90,7 @@ function buttonNew() {
 }
 
 function buttonEdit() {
-    document.querySelectorAll(".btn-primary").forEach(function (item) {
+    document.querySelectorAll(".btn-edit").forEach(function (item) {
         item.addEventListener("click", function () {
             let id = this.dataset.id;
             loadEdit(id);
@@ -101,9 +101,11 @@ function buttonEdit() {
 function buttonPlatillos() {
     document.querySelectorAll(".btn-platillos").forEach(function (item) {
         item.addEventListener("click", function () {
-            let id = this.dataset.id;
+            // let id = this.dataset.id;
+
+            console.log("agregando platillos al pedido");
             // loadEdit(id);
-            loadPedidosPlatillos(id);
+            // loadPedidosPlatillos(id);
         });
     });
 }

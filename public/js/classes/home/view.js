@@ -23,9 +23,6 @@ export function loadHome() {
                 div.innerHTML = data;
                 divApp.appendChild(div);
                 resolve("ok");
-            })
-            .catch(function (error) {
-                console.log(error);
             });
     });
 }

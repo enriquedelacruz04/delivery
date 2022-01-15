@@ -17,9 +17,7 @@ let formHtml = urls.clientes.form;
 export function loadClientes() {
     let promise = clientes.getData();
     promise
-        .then((data) => {
-            return data;
-        })
+        .then((data) => data)
         .then((data) => {
             loadData(data);
         })

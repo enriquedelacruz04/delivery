@@ -24,13 +24,6 @@ function loadApp() {
     let promise = loadHome();
     promise.then((data) => {
         loadMenuCards();
-
-        document.querySelector(".nav-pills .nav-item--home").addEventListener("click", function () {
-            let promise = loadHome();
-            promise.then((data) => {
-                loadMenuCards();
-            });
-        });
     });
 }
 
@@ -50,6 +43,12 @@ function loadMenuCards() {
 }
 
 function loadMenu() {
+    document.querySelector(".nav-pills .nav-item--home").addEventListener("click", function () {
+        loadHome().then((data) => {
+            loadMenuCards();
+        });
+    });
+
     document.querySelector(".nav-pills .nav-item--clientes").addEventListener("click", function () {
         loadClientes();
     });
