@@ -1,10 +1,12 @@
 "use strict";
 
-import Pedidos from "./Pedidos.js";
 import Urls from "../Urls.js";
-import UI from "../UI.js";
 import Routes from "../Routes.js";
-import { loadPedidosPlatillos } from "../pedidosPlatillos/view.js";
+let routes;
+console.log("pedidos");
+
+import Pedidos from "./Pedidos.js";
+import UI from "../UI.js";
 
 //========================= Objetos de la clase
 let urls = new Urls();
@@ -17,6 +19,9 @@ let tableHTML = urls.pedidos.table;
 let formHtml = urls.pedidos.form;
 
 export function loadPedidos() {
+    routes = new Routes();
+
+    console.log("fn pedidos");
     let html = "";
 
     //========================= Cargamos la tabla y los datos de la tabla
@@ -105,7 +110,7 @@ function buttonPlatillos() {
         item.addEventListener("click", function () {
             let id = this.dataset.id;
             console.log("agregando platillos al pedido");
-            // Routes.router("pedidosPlatillos?id=" + id, loadPedidosPlatillos);
+            routes.go(routes.paths.clientes.path + id, loadPedidosPlatillos);
         });
     });
 }

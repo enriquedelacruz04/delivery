@@ -5,7 +5,7 @@ import Routes from "../Routes.js";
 
 //========================= Objetos de la clase
 let urls = new Urls();
-let routes = new Routes();
+let routes;
 
 //========================= Html del dashboard
 let dashboard = urls.home.dashboard;
@@ -14,6 +14,7 @@ let dashboard = urls.home.dashboard;
 let divApp = urls.divApp;
 
 export async function loadHome() {
+    routes = new Routes();
     try {
         let response = await fetch(dashboard);
         let data = await response.text();
@@ -30,15 +31,15 @@ export async function loadHome() {
 function loadMenuCards() {
     //=========================
     document.querySelector(".card--clientes").addEventListener("click", function () {
-        routes.get(routes.paths.clientes.path);
+        routes.go(routes.paths.clientes.path);
     });
 
     document.querySelector(".card--repartidores").addEventListener("click", function () {
-        routes.get(routes.paths.repartidores.path);
+        routes.go(routes.paths.repartidores.path);
     });
 
     document.querySelector(".card--pedidos").addEventListener("click", function () {
-        routes.get(routes.paths.pedidos.path);
+        routes.go(routes.paths.pedidos.path);
     });
 }
 
